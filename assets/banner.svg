@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="184" viewBox="0 0 960 184" role="img" aria-labelledby="title desc">
+<title id="title">Practical software. Real-world context.</title><desc id="desc">A transit-inspired route connects a data source, code, and the people who use the tools.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0d1728"/><stop offset="1" stop-color="#152c3b"/></linearGradient><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#64849a" opacity=".14"/></pattern></defs>
+<rect x=".5" y=".5" width="959" height="183" rx="20" fill="url(#bg)" stroke="#294354"/>
+<rect x="480" y="1" width="460" height="182" fill="url(#grid)"/>
+<path d="M32 32v120" stroke="#68e2c1" stroke-width="3"/>
+<text x="56" y="70" fill="#f0f6fc" font-family="Arial,sans-serif" font-size="38" font-weight="700">Practical software.</text>
+<text x="56" y="113" fill="#83e7cf" font-family="Arial,sans-serif" font-size="38" font-weight="700">Real-world context.</text>
+<text x="57" y="145" fill="#b6c7d3" font-family="Arial,sans-serif" font-size="13" letter-spacing="2.4">TRANSIT DATA · WEB APPS · APIs &amp; DATABASES</text>
+<path d="M548 54h67q20 0 34 14l48 48q14 14 34 14h178" fill="none" stroke="#3acba8" stroke-width="5" stroke-linecap="round"/>
+<path d="M547 130h71q18 0 32-14l47-48q14-14 34-14h177" fill="none" stroke="#6ba9f8" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+<g fill="#0f2031" stroke="#d3e5ee" stroke-width="3"><circle cx="566" cy="54" r="9"/><circle cx="672" cy="92" r="11"/><circle cx="780" cy="130" r="9"/><circle cx="896" cy="130" r="9"/><circle cx="845" cy="54" r="7"/></g>
+<g fill="#a9c2d3" font-family="Arial,sans-serif" font-size="10" letter-spacing="1.6"><text x="548" y="29">DATA</text><text x="650" y="158">LOGIC</text><text x="764" y="158">TOOLS</text><text x="869" y="104">PEOPLE</text></g>
+<rect x="726" y="43" width="30" height="22" rx="7" fill="#83e7cf"/><path d="m735 49-5 5 5 5m12-10 5 5-5 5" fill="none" stroke="#102a37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,85 @@
+name: Refresh contribution animation
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 10 * * 2'
+  push:
+    branches: [main]
+    paths: ['.github/workflows/contributions.yml']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-contribution-animation
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    if: github.repository == 'Omar-Khattab-01/Omar-Khattab-01'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Generate Omar's contribution animations
+        uses: Platane/snk@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3.5.0; container also pinned by digest upstream
+        with:
+          github_user_name: Omar-Khattab-01
+          github_token: ${{ github.token }}
+          outputs: |
+            generated/contributions.svg?color_snake=%2317685e&color_dots=%23e8eef3,%23bbefdd,%2377dcbc,%233abf9a,%231b8d71
+            generated/contributions-dark.svg?palette=github-dark&color_snake=%2383e7cf&color_dots=%23162135,%231c4e4a,%23217464,%2334a888,%2365d9b4
+            generated/contributions.gif?color_snake=%2383e7cf&color_dots=%23162135,%231c4e4a,%23217464,%2334a888,%2365d9b4&color_background=%230d1728
+      - name: Store generated images
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: contribution-animation
+          path: generated/
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    needs: generate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the profile repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Retrieve generated images
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: contribution-animation
+          path: assets/
+      - name: Publish images with Omar's established commit identity
+        env:
+          GIT_AUTHOR_NAME: Omar Khattab
+          GIT_AUTHOR_EMAIL: 83536669+Omar-Khattab-01@users.noreply.github.com
+          GIT_COMMITTER_NAME: Omar Khattab
+          GIT_COMMITTER_EMAIL: 83536669+Omar-Khattab-01@users.noreply.github.com
+        run: |
+          set -euo pipefail
+          git config --local user.name "$GIT_AUTHOR_NAME"
+          git config --local user.email "$GIT_AUTHOR_EMAIL"
+          test "$(git var GIT_AUTHOR_IDENT | cut -d '>' -f 1)" = 'Omar Khattab <83536669+Omar-Khattab-01@users.noreply.github.com'
+          test "$(git var GIT_COMMITTER_IDENT | cut -d '>' -f 1)" = 'Omar Khattab <83536669+Omar-Khattab-01@users.noreply.github.com'
+          for image in assets/contributions.svg assets/contributions-dark.svg assets/contributions.gif; do
+            test -s "$image"
+          done
+          git add -- assets/contributions.svg assets/contributions-dark.svg assets/contributions.gif
+          if git diff --cached --quiet; then
+            echo 'Contribution images are unchanged.'
+            exit 0
+          fi
+          git diff --cached --name-only | while IFS= read -r path; do
+            case "$path" in
+              assets/contributions.svg|assets/contributions-dark.svg|assets/contributions.gif) ;;
+              *) echo 'Unexpected staged file'; exit 1 ;;
+            esac
+          done
+          git commit -m "chore: refresh contribution animation"
+          test "$(git log -1 --format='%an|%ae|%cn|%ce')" = 'Omar Khattab|83536669+Omar-Khattab-01@users.noreply.github.com|Omar Khattab|83536669+Omar-Khattab-01@users.noreply.github.com'
+          git push origin HEAD:main
