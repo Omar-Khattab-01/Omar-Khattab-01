@@ -31,7 +31,6 @@ I connect APIs and databases to clear interfaces, with attention to data integri
   <img src="assets/tools/nextjs.svg" alt="Next.js" width="72" height="84" />
   <img src="assets/tools/nodejs.svg" alt="Node.js" width="72" height="84" />
   <img src="assets/tools/express.svg" alt="Express" width="72" height="84" />
-  <br />
   <img src="assets/tools/postgresql.svg" alt="PostgreSQL" width="72" height="84" />
   <img src="assets/tools/sqlite.svg" alt="SQLite" width="72" height="84" />
   <img src="assets/tools/supabase.svg" alt="Supabase" width="72" height="84" />
@@ -61,3 +60,11 @@ I connect APIs and databases to clear interfaces, with attention to data integri
 
 6. **[Milano's Cash Out](https://github.com/Omar-Khattab-01/milanos-cashout)**<br />
    Keep employee shifts, driver earnings, cash reconciliation, receipts, and management review together.
+
+## Contribution trail
+
+<p align="center">
+  <img src="assets/contributions.gif" alt="An animated snake moves through Omar's GitHub contribution grid." width="100%" />
+</p>
+
+<p align="center"><sub>My GitHub contribution grid, with a little motion. Refreshed weekly.</sub></p>
