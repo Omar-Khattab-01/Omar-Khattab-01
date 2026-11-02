@@ -14,6 +14,12 @@
   <a href="https://www.linkedin.com/in/omar-khattab-4b10581b9/"><img src="assets/linkedin.svg" alt="Connect with me on LinkedIn" width="162" height="44" /></a>
 </p>
 
+<p align="center">
+  <img src="assets/contributions.gif" alt="An animated snake moves through Omar's GitHub contribution grid." width="100%" />
+</p>
+
+<p align="center"><sub>Contribution trail · My GitHub activity, refreshed weekly.</sub></p>
+
 ## How I work
 
 My projects often start with a practical question: how can this information be easier to find, check, or use?
@@ -60,11 +66,3 @@ I connect APIs and databases to clear interfaces, with attention to data integri
 
 6. **[Milano's Cash Out](https://github.com/Omar-Khattab-01/milanos-cashout)**<br />
    Keep employee shifts, driver earnings, cash reconciliation, receipts, and management review together.
-
-## Contribution trail
-
-<p align="center">
-  <img src="assets/contributions.gif" alt="An animated snake moves through Omar's GitHub contribution grid." width="100%" />
-</p>
-
-<p align="center"><sub>My GitHub contribution grid, with a little motion. Refreshed weekly.</sub></p>
